@@ -21,9 +21,11 @@
   },
   "homepage": "https://github.com/davidjgoss/cucumber-puppeteer-typescript-starter#readme",
   "devDependencies": {
+    "@types/chai": "^4.2.9",
     "@types/cucumber": "^6.0.0",
     "@types/node": "^13.5.3",
     "@types/puppeteer": "^2.0.0",
+    "chai": "^4.2.0",
     "cucumber": "^6.0.5",
     "puppeteer": "^2.1.0",
     "ts-node": "^8.6.2",
