@@ -1,8 +1,7 @@
 {
   "name": "cucumber-puppeteer-typescript-starter",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Project starter for using puppeteer with cucumber-js, written in TypeScript",
-  "main": "index.js",
   "scripts": {
     "test": "cucumber-js --require-module ts-node/register --require 'support/**/*.ts'"
   },
@@ -11,8 +10,11 @@
     "url": "git+https://github.com/davidjgoss/cucumber-puppeteer-typescript-starter.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "David Goss",
+    "url": "https://davidgoss.co"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/davidjgoss/cucumber-puppeteer-typescript-starter/issues"
   },
