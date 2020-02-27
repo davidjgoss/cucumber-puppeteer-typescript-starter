@@ -2,6 +2,8 @@
 
 > Project starter for using puppeteer with cucumber-js, written in TypeScript
 
+This project starter is designed to get you up and running with [cucumber-js](https://github.com/cucumber/cucumber-js) for browser automation, with a modern stack and well-structured project.
+
 ## Opinionated
 
 Sorry.
@@ -9,15 +11,16 @@ Sorry.
 A brief list of the things about this starter you might (not) like:
 
 - Written in TypeScript with async/await
-- Using puppeteer for browser automation
-- Using chai for assertions
-- Using ESLint to hurt your feelings
+- Uses puppeteer for browser automation
+- Uses chai for assertions
+- Uses ESLint to hurt your feelings
+- Prefers [cucumber-expressions](https://cucumber.io/docs/cucumber/cucumber-expressions/) over RegExp
 - Gherkin in first person, present tense form
-- Multi-tiered project structure (below)
+- Multi-tiered support code structure (below)
 
-## Project Structure
+## Main Structure
 
-There are four tiers. This is all very deliberate, and designed to make your project scale gracefully; stay with me.
+The main structure of the support code (for actually implementing your steps) has four tiers: **Steps**, **World**, **Actors** and **Pages**. This is all very deliberate, and designed to make your project scale gracefully; stay with me.
 
 ### Steps
 
@@ -39,9 +42,9 @@ Find it here:
 support/CustomWorld.ts
 ```
 
-Not much of substance should really happen in here; it's really a middleman between the step functions and the instrumentation. It contains the stuff Cucumber initialises it with, plus each actor (see below).
+This is your custom [World](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/world.md) class. Not much of substance should happen directly in here; it's really a middleman between the step functions and the instrumentation. It contains the stuff Cucumber initialises it with, plus each actor (see below).
 
-Remember, you get a fresh instance of this per scenario attempt run by Cucumber.
+Remember, you get a fresh instance of your World per scenario attempt run by Cucumber.
 
 ### Actors
 
@@ -80,6 +83,30 @@ As your project grows:
 - Add "components" for things that appear across pages
 - Don't be afraid to use inheritance and polymorphism
 
+## Other Structure
+
+## World Parameters
+
+Find them here:
+
+```
+support/CustomParameters.ts
+```
+
+This is a TypeScript interface for your [world parameters](https://github.com/cucumber/cucumber-js/blob/master/docs/cli.md#world-parameters); you can add properties to it as you support more configurability in your project. 
+
+The same file also exports a `defaults` object. As you'd expect, this is used as the default set of world parameters, and then any that you provide at runtime via the CLI or profiles will be mixed in via a deep merge.
+
+## Hooks
+
+Find them here:
+
+```
+support/hooks/*.ts
+```
+
+To start with, we have `Before` and `After` hooks that respectively set up and tear down puppeteer. If you need to add more hooks, do that here.
+
 ## Why puppeteer?
 
 If you're not familiar, [puppeteer](https://pptr.dev/) is a tool for automating Chromium. It's [maintained](https://github.com/puppeteer/puppeteer) by the team at Google, and works by using the [DevTools protocol](https://chromedevtools.github.io/devtools-protocol/). A couple of things drew me to it, and keep me using it:
@@ -95,12 +122,12 @@ I don't want to beat up on WebDriver - a huge amount has been achieved with it a
 
 ## Why TypeScript?
 
-This starter designed for projects you know will eventually become pretty large. And I would recommend [TypeScript](https://www.typescriptlang.org/) for _any_ medium-to-large sized JavaScript project because of all the safety and efficiency it brings.
+This starter is designed for projects you know will eventually become pretty large. And I would recommend [TypeScript](https://www.typescriptlang.org/) for _any_ medium-to-large sized JavaScript project because of all the safety and efficiency it brings.
+
+This starter makes use of Cucumber's `require-module` option to have TypeScript code compiled on the fly when you run, so you don't need to compile to JavaScript as a pre-step to running your tests. 
 
 ## Todo
 
-- Hooks
 - Formatters
 - Attachments
-- World Parameters
 - Profiles
