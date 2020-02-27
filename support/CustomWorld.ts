@@ -1,14 +1,16 @@
 import {World} from "cucumber";
 import {BrowserActor} from "./actors/BrowserActor";
+import {CustomParameters, defaults} from "./CustomParameters";
+import {merge} from "lodash";
 
 export class CustomWorld implements World {
     readonly attach: Function;
-    readonly options: any;
-    browser: BrowserActor;
+    readonly parameters: CustomParameters;
+    readonly browser: BrowserActor;
 
-    constructor({attach, options}) {
+    constructor({attach, parameters}: { attach: Function, parameters: CustomParameters }) {
         this.attach = attach;
-        this.options = options;
+        this.parameters = CustomWorld.mixinParameters(parameters);
         this.browser = new BrowserActor(this);
     }
 
@@ -18,5 +20,9 @@ export class CustomWorld implements World {
 
     async destroy() {
         await this.browser.destroy();
+    }
+
+    private static mixinParameters(userDefined: CustomParameters) {
+        return merge({}, defaults, userDefined);
     }
 }
