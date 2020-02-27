@@ -85,7 +85,7 @@ As your project grows:
 
 ## Other Stuff
 
-Outside of the main support code for steps
+Outside of the main support code for steps, there are some other aspects of a Cucumber project that are mapped out here, ready for you to expand when you need to.
 
 ## World Parameters
 
