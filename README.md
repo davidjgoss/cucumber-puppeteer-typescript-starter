@@ -115,6 +115,16 @@ This starter uses two formatters:
 - The `progress-bar` formatter, piped to stdout
 - The `json` formatter, saved to `dist/cucumber.json`
 
+## Profiles
+
+Find it here:
+
+```
+cucumber.js
+```
+
+You can add and flesh out your [profiles](https://github.com/cucumber/cucumber-js/blob/master/docs/cli.md#profiles) here when you're ready.
+
 ## Why puppeteer?
 
 If you're not familiar, [puppeteer](https://pptr.dev/) is a tool for automating Chromium. It's [maintained](https://github.com/puppeteer/puppeteer) by the team at Google, and works by using the [DevTools protocol](https://chromedevtools.github.io/devtools-protocol/). A couple of things drew me to it, and keep me using it:
@@ -132,8 +142,4 @@ I don't want to beat up on WebDriver - a huge amount has been achieved with it a
 
 This starter is designed for projects you know will eventually become pretty large. And I would recommend [TypeScript](https://www.typescriptlang.org/) for _any_ medium-to-large sized JavaScript project because of all the safety and efficiency it brings.
 
-This starter makes use of Cucumber's `require-module` option to have TypeScript code compiled on the fly when you run, so you don't need to compile to JavaScript as a pre-step to running your tests. 
-
-## Todo
-
-- Profiles
+This starter makes use of Cucumber's `require-module` option to have TypeScript code compiled on the fly when you run, so you don't need to compile to JavaScript as a pre-step to running your tests.
