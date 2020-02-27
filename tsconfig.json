@@ -1,6 +1,6 @@
 {
   "include": [
-    "src/**/*.ts"
+    "support/**/*.ts"
   ],
   "exclude": [
     "node_modules"
@@ -9,6 +9,8 @@
     "target": "es2017",
     "module": "commonjs",
     "moduleResolution": "node",
-    "noEmit": true
+    "noEmit": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true
   }
 }

@@ -4,6 +4,8 @@
   "description": "Project starter for using puppeteer with cucumber-js, written in TypeScript",
   "private": true,
   "scripts": {
+    "compile": "tsc",
+    "lint": "eslint support/**/*.ts --fix",
     "test": "cucumber-js --require-module ts-node/register --require \"support/**/*.ts\" --format progress-bar --format json:dist/cucumber.json"
   },
   "repository": {
@@ -23,10 +25,15 @@
   "devDependencies": {
     "@types/chai": "^4.2.9",
     "@types/cucumber": "^6.0.0",
+    "@types/lodash": "^4.14.149",
     "@types/node": "^13.5.3",
     "@types/puppeteer": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "@typescript-eslint/parser": "^2.21.0",
     "chai": "^4.2.0",
     "cucumber": "^6.0.5",
+    "eslint": "^6.8.0",
+    "eslint-plugin-cucumber": "^1.4.0",
     "lodash": "^4.17.15",
     "puppeteer": "^2.1.0",
     "ts-node": "^8.6.2",

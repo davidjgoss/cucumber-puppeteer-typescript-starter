@@ -1,7 +1,7 @@
-import {launch, Browser, Page} from "puppeteer";
-import {CustomWorld} from "../CustomWorld";
-import {DocumentationPage} from "../pages/DocumentationPage";
-import {HomePage} from "../pages/HomePage";
+import {launch, Browser, Page} from 'puppeteer';
+import {CustomWorld} from '../CustomWorld';
+import {DocumentationPage} from '../pages/DocumentationPage';
+import {HomePage} from '../pages/HomePage';
 
 export class BrowserActor {
     private browser: Browser;
@@ -10,26 +10,26 @@ export class BrowserActor {
     constructor(private world: CustomWorld) {
     }
 
-    async init() {
+    async init(): Promise<void> {
         this.browser = await launch({
             headless: false
         });
         this.page = (await this.browser.pages())[0];
     }
 
-    async destroy() {
+    async destroy(): Promise<void> {
         await this.browser.close();
     }
 
-    async navigate() {
+    async navigate(): Promise<void> {
         await this.page.goto('https://cucumber.io');
     }
 
-    get homePage() {
+    get homePage(): HomePage {
         return new HomePage(this.browser, this.page);
     }
 
-    get documentationPage() {
+    get documentationPage(): DocumentationPage {
         return new DocumentationPage(this.browser, this.page);
     }
 }
