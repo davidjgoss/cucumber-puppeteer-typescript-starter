@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "compile": "tsc",
-    "lint": "eslint support/**/*.ts --fix",
+    "lint": "eslint \"support/**/*.ts\" --fix",
     "test": "cucumber-js --require-module ts-node/register --require \"support/**/*.ts\" --format progress-bar --format json:dist/cucumber.json"
   },
   "repository": {

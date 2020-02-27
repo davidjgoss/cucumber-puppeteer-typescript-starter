@@ -1,5 +1,5 @@
-import {Before, After} from "cucumber";
-import {CustomWorld} from "./CustomWorld";
+import {Before, After} from 'cucumber';
+import {CustomWorld} from './CustomWorld';
 
 Before(async function(this: CustomWorld) {
     await this.init();

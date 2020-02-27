@@ -1,28 +1,28 @@
-import {World} from "cucumber";
-import {BrowserActor} from "./actors/BrowserActor";
-import {CustomParameters, defaults} from "./CustomParameters";
-import {merge} from "lodash";
+import {World} from 'cucumber';
+import {BrowserActor} from './actors/BrowserActor';
+import {CustomParameters, defaults} from './CustomParameters';
+import {merge} from 'lodash';
 
 export class CustomWorld implements World {
     readonly attach: Function;
     readonly parameters: CustomParameters;
     readonly browser: BrowserActor;
 
-    constructor({attach, parameters}: { attach: Function, parameters: CustomParameters }) {
+    constructor({attach, parameters}: { attach: Function; parameters: CustomParameters }) {
         this.attach = attach;
         this.parameters = CustomWorld.mixinParameters(parameters);
         this.browser = new BrowserActor(this);
     }
 
-    async init() {
+    async init(): Promise<void> {
         await this.browser.init();
     }
 
-    async destroy() {
+    async destroy(): Promise<void> {
         await this.browser.destroy();
     }
 
-    private static mixinParameters(userDefined: CustomParameters) {
+    private static mixinParameters(userDefined: CustomParameters): CustomParameters {
         return merge({}, defaults, userDefined);
     }
 }
