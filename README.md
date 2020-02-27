@@ -83,7 +83,9 @@ As your project grows:
 - Add "components" for things that appear across pages
 - Don't be afraid to use inheritance and polymorphism
 
-## Other Structure
+## Other Stuff
+
+Outside of the main support code for steps
 
 ## World Parameters
 
@@ -107,6 +109,12 @@ support/hooks/*.ts
 
 To start with, we have `Before` and `After` hooks that respectively set up and tear down puppeteer. If you need to add more hooks, do that here.
 
+## Formatters
+
+This starter uses two formatters:
+- The `progress-bar` formatter, piped to stdout
+- The `json` formatter, saved to `dist/cucumber.json`
+
 ## Why puppeteer?
 
 If you're not familiar, [puppeteer](https://pptr.dev/) is a tool for automating Chromium. It's [maintained](https://github.com/puppeteer/puppeteer) by the team at Google, and works by using the [DevTools protocol](https://chromedevtools.github.io/devtools-protocol/). A couple of things drew me to it, and keep me using it:
@@ -128,6 +136,4 @@ This starter makes use of Cucumber's `require-module` option to have TypeScript 
 
 ## Todo
 
-- Formatters
-- Attachments
 - Profiles

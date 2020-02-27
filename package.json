@@ -4,7 +4,7 @@
   "description": "Project starter for using puppeteer with cucumber-js, written in TypeScript",
   "private": true,
   "scripts": {
-    "test": "cucumber-js --require-module ts-node/register --require \"support/**/*.ts\""
+    "test": "cucumber-js --require-module ts-node/register --require \"support/**/*.ts\" --format progress-bar --format json:dist/cucumber.json"
   },
   "repository": {
     "type": "git",

@@ -1,3 +1,5 @@
+dist/*.json
+
 # Logs
 logs
 *.log
