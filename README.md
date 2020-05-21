@@ -42,7 +42,7 @@ Find it here:
 support/CustomWorld.ts
 ```
 
-This is your custom [World](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/world.md) class. Not much of substance should happen directly in here; it's really a middleman between the step functions and the instrumentation. It contains the stuff Cucumber initialises it with, plus each actor (see below).
+This is your custom [World](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/world.md) class. Not much of substance should happen directly in here; it's really an intermediary between the step functions and the instrumentation. It contains the stuff Cucumber initialises it with, plus each actor (see below).
 
 Remember, you get a fresh instance of your World per scenario attempt run by Cucumber.
 
