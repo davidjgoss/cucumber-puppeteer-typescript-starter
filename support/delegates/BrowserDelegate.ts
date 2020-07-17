@@ -3,7 +3,7 @@ import {CustomWorld} from '../CustomWorld';
 import {DocumentationPage} from '../pages/DocumentationPage';
 import {HomePage} from '../pages/HomePage';
 
-export class BrowserActor {
+export class BrowserDelegate {
     private browser: Browser;
     private page: Page;
 

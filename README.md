@@ -20,7 +20,7 @@ A brief list of the things about this starter you might (not) like:
 
 ## Main Structure
 
-The main structure of the support code (for actually implementing your steps) has four tiers: **Steps**, **World**, **Actors** and **Pages**. This is all very deliberate, and designed to make your project scale gracefully; stay with me.
+The main structure of the support code (for actually implementing your steps) has four tiers: **Steps**, **World**, **Delegates** and **Pages**. This is all very deliberate, and designed to make your project scale gracefully; stay with me.
 
 ### Steps
 
@@ -42,24 +42,24 @@ Find it here:
 support/CustomWorld.ts
 ```
 
-This is your custom [World](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/world.md) class. Not much of substance should happen directly in here; it's really an intermediary between the step functions and the instrumentation. It contains the stuff Cucumber initialises it with, plus each actor (see below).
+This is your custom [World](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/world.md) class. Not much of substance should happen directly in here; it's really an intermediary between the step functions and the instrumentation. It contains the stuff Cucumber initialises it with, plus each delegate (see below).
 
 Remember, you get a fresh instance of your World per scenario attempt run by Cucumber.
 
-### Actors
+### Delegates
 
 Find them here:
 
 ```
-support/actors/*.ts
+support/delegates/*.ts
 ```
 
-An "actor" is something that knows how to instrument an interface with your software. You might also call it a "delegate". In this starter, we just have one actor: `BrowserActor`, which knows how to instrument the UI via puppeteer. It has a getter for each page object (see below).
+A "delegate" is something that knows how to instrument an interface with your software. In this starter, we just have one delegate: `BrowserDelegate`, which knows how to instrument the UI via puppeteer. It has a getter for each page object (see below).
 
-As your project grows, you might want to add more actors to do different stuff, such as:
+As your project grows, you might want to add more delegates to do different stuff, such as:
 
-- `ApiActor` - to call APIs
-- `DomainActor` - to query a database
+- `ApiDelegate` - to call APIs
+- `DomainDelegate` - to query a database
 
 ### Pages
 
