@@ -1,16 +1,15 @@
-import {World} from 'cucumber';
+import {World, IWorldOptions} from '@cucumber/cucumber';
 import {BrowserDelegate} from './delegates/BrowserDelegate';
 import {CustomParameters, defaults} from './CustomParameters';
 import {merge} from 'lodash';
 
-export class CustomWorld implements World {
-    readonly attach: Function;
+export class CustomWorld extends World {
     readonly parameters: CustomParameters;
     readonly browser: BrowserDelegate;
 
-    constructor({attach, parameters}: { attach: Function; parameters: CustomParameters }) {
-        this.attach = attach;
-        this.parameters = CustomWorld.mixinParameters(parameters);
+    constructor(options: IWorldOptions) {
+        super(options);
+        this.parameters = CustomWorld.mixinParameters(options.parameters);
         this.browser = new BrowserDelegate(this);
     }
 
