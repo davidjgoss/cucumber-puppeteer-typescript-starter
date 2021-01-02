@@ -1,4 +1,4 @@
-import {Before, After} from 'cucumber';
+import {Before, After} from '@cucumber/cucumber';
 import {CustomWorld} from './CustomWorld';
 
 Before(async function(this: CustomWorld) {
