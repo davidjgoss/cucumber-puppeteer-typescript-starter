@@ -1,11 +1,9 @@
-import {launch, Browser, Page} from 'puppeteer';
+import {Browser, launch, Page} from 'puppeteer';
 import {CustomWorld} from '../CustomWorld';
-import {DocumentationPage} from '../pages/DocumentationPage';
-import {HomePage} from '../pages/HomePage';
 
 export class BrowserDelegate {
-    private browser: Browser;
-    private page: Page;
+    browser: Browser;
+    page: Page;
 
     constructor(private world: CustomWorld) {
     }
@@ -22,14 +20,6 @@ export class BrowserDelegate {
     }
 
     async navigate(): Promise<void> {
-        await this.page.goto('https://cucumber.io');
-    }
-
-    get homePage(): HomePage {
-        return new HomePage(this.browser, this.page);
-    }
-
-    get documentationPage(): DocumentationPage {
-        return new DocumentationPage(this.browser, this.page);
+        await this.page.goto('https://todomvc.com/examples/react/#/');
     }
 }
