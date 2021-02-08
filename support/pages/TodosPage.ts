@@ -15,4 +15,25 @@ export class TodosPage {
         const handles = await this.delegate.page.$$('.todo-list > li');
         return handles.length;
     }
+
+    async listItems(): Promise<string[]> {
+        const handles = await this.delegate.page.$$('.todo-list > li');
+        const items = [];
+        for (const handle of handles) {
+            const label = await handle.$('label');
+            const text = await label.evaluate(elem => elem.textContent);
+            items.push(text);
+        }
+        return items;
+    }
+
+    async addItem(todo: string) {
+        const input = await this.input;
+        await input.type(todo);
+        await input.press('Enter');
+    }
+
+    private get input(): Promise<ElementHandle> {
+        return this.delegate.page.$('input.new-todo');
+    }
 }

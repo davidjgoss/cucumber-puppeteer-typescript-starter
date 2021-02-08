@@ -21,5 +21,6 @@ export class BrowserDelegate {
 
     async navigate(): Promise<void> {
         await this.page.goto('https://todomvc.com/examples/react/#/');
+        await this.page.waitFor(100);
     }
 }
