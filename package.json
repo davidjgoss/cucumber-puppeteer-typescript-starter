@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/davidjgoss/cucumber-puppeteer-typescript-starter#readme",
   "devDependencies": {
+    "@cucumber/cucumber": "^7.1.0",
     "@types/chai": "^4.2.9",
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.5.3",
@@ -30,7 +31,6 @@
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
     "chai": "^4.2.0",
-    "@cucumber/cucumber": "^7.0.0",
     "eslint": "^6.8.0",
     "eslint-plugin-cucumber": "^1.4.0",
     "lodash": "^4.17.19",
