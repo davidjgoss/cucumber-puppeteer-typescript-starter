@@ -112,7 +112,7 @@ To start with, we have `Before` and `After` hooks that respectively set up and t
 ## Formatters
 
 This starter uses three formatters:
-- The `progress-bar` formatter, piped to stdout
+- The `@cucumber/pretty-formatter`, piped to stdout (separate dependency)
 - The `message` formatter, saved to `dist/cucumber.ndjson` - this is the standard cucumber-messages output that can be used as-is or consumed by other tools
 - The `html` formatter, saved to `dist/cucumber.html` - this produces a nice HTML report for the test run
 
