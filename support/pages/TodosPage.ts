@@ -1,5 +1,6 @@
 import {Browser, ElementHandle, Page} from 'puppeteer';
 import {BrowserDelegate} from '../delegates/BrowserDelegate';
+import {find} from 'lodash';
 
 export class TodosPage {
     constructor(private delegate: BrowserDelegate) {
@@ -37,6 +38,28 @@ export class TodosPage {
         const input = await this.input;
         await input.type(todo);
         await input.press('Enter');
+    }
+
+    async editItem(todo: string, newText: string) {
+        const item = await this.findItem(todo);
+        await item.click({clickCount: 2});
+        const input = await item.$('input');
+        for (let i = 0; i < todo.length; i++) {
+            await this.delegate.page.keyboard.press('Backspace');
+        }
+        await input.type(newText);
+        await this.delegate.page.keyboard.press('Enter');
+    }
+
+    async findItem(todo: string): Promise<ElementHandle> {
+        const items = await this.delegate.page.$$('ul.todo-list li');
+        for (const item of items) {
+            const text = await item.evaluate(el => el.textContent);
+            if (text === todo) {
+                return item;
+            }
+        }
+        throw new Error(`Couldn't find an item matching "${todo}"`);
     }
 
     async hasMain() {

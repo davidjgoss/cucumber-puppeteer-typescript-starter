@@ -7,6 +7,14 @@ Given('an empty todo list', async function(this: CustomWorld) {
     await this.browser.navigate();
 });
 
+Given('a todo list with items:', async function(this: CustomWorld, todos: DataTable) {
+    await this.browser.navigate();
+    const todosPage = new TodosPage(this.browser);
+    for (const todo of todos.raw().map(row => row[0])) {
+        await todosPage.addItem(todo);
+    }
+});
+
 When('I add the todo {string}', async function (this: CustomWorld, todo: string) {
     const todosPage = new TodosPage(this.browser);
     await todosPage.addItem(todo);
@@ -40,4 +48,9 @@ Then('my cursor is ready to create a todo', async function (this: CustomWorld) {
     const todosPage = new TodosPage(this.browser);
     const result = await todosPage.isInputFocused();
     expect(result).to.be.true;
+});
+
+When('I edit the todo {string} to {string}', async function (this: CustomWorld, todo: string, newText: string) {
+    const todosPage = new TodosPage(this.browser);
+    await todosPage.editItem(todo, newText);
 });
