@@ -5,6 +5,12 @@ export class TodosPage {
     constructor(private delegate: BrowserDelegate) {
     }
 
+    async getInputValue(): Promise<string> {
+        return await this.delegate.page.evaluate(() => {
+            return document.querySelector<HTMLInputElement>('input.new-todo').value;
+        });
+    }
+
     async isInputFocused(): Promise<boolean> {
         return await this.delegate.page.evaluate(() => {
             return document.activeElement === document.querySelector('input.new-todo');

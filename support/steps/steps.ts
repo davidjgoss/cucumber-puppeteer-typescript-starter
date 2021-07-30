@@ -30,6 +30,12 @@ Then('the todos are:', async function (this: CustomWorld, todos: DataTable) {
     expect(items).to.deep.eq(todos.raw().map(row => row[0]));
 });
 
+Then('the todo input is empty', async function(this: CustomWorld) {
+    const todosPage = new TodosPage(this.browser);
+    const value = await todosPage.getInputValue();
+    expect(value).to.eq('');
+});
+
 Then('my cursor is ready to create a todo', async function (this: CustomWorld) {
     const todosPage = new TodosPage(this.browser);
     const result = await todosPage.isInputFocused();
