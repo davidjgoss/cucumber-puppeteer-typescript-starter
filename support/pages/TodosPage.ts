@@ -33,6 +33,16 @@ export class TodosPage {
         await input.press('Enter');
     }
 
+    async hasMain() {
+        const mainElem = await this.delegate.page.$('#main');
+        return !!mainElem;
+    }
+
+    async hasFooter() {
+        const footerElem = await this.delegate.page.$('#footer');
+        return !!footerElem;
+    }
+
     private get input(): Promise<ElementHandle> {
         return this.delegate.page.$('input.new-todo');
     }

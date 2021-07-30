@@ -18,6 +18,12 @@ Then('no todos are listed', async function (this: CustomWorld) {
     expect(count).to.eq(0);
 });
 
+Then('unnecessary controls are hidden', async function (this: CustomWorld) {
+    const todosPage = new TodosPage(this.browser);
+    expect(await todosPage.hasMain()).to.be.false;
+    expect(await todosPage.hasFooter()).to.be.false;
+});
+
 Then('the todos are:', async function (this: CustomWorld, todos: DataTable) {
     const todosPage = new TodosPage(this.browser);
     const items = await todosPage.listItems();
