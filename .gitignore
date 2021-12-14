@@ -1,4 +1,5 @@
 dist/*.json
+@rerun.txt
 
 # Logs
 logs

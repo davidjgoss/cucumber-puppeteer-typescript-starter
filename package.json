@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "tsc",
     "lint": "eslint \"support/**/*.ts\" --fix",
-    "test": "cucumber-js"
+    "test": "cucumber-js",
+    "test:rerun": "cucumber-js @rerun.txt"
   },
   "repository": {
     "type": "git",
