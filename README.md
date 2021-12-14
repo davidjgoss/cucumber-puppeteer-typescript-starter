@@ -131,11 +131,9 @@ You can add and flesh out your [profiles](https://github.com/cucumber/cucumber-j
 If you're not familiar, [puppeteer](https://pptr.dev/) is a tool for automating Chromium. It's [maintained](https://github.com/puppeteer/puppeteer) by the team at Google, and works by using the [DevTools protocol](https://chromedevtools.github.io/devtools-protocol/). A couple of things drew me to it, and keep me using it:
 
 - **Reliability** - puppeteer downloads and uses a build of Chromium that it is specifically targeted to work with - this makes it reliable, and means never getting to work in the morning to find all the acceptance tests failing because of a browser update.
-- **Speed** - puppeteer works directly over the DevTools protocol rather than a black box-style driver, so it's _fast_.
+- **Speed** - puppeteer works directly over the DevTools protocol, so it's _fast_.
 
 The obvious downside is that it just works for Chromium. This is already changing though, with projects afoot to support [Firefox](https://github.com/puppeteer/puppeteer/tree/master/experimental/puppeteer-firefox) and even [IE](https://github.com/TechQuery/Puppeteer-IE). Over time, I see the browser automation going the same way as [browser extensions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions), where browsers settle on a standard that allows a (mostly) write-once ecosystem.
-
-I don't want to beat up on WebDriver - a huge amount has been achieved with it across the industry - but tools like puppeteer seem like the way forward to me.
 
 (There's tons [more you can do](https://github.com/transitive-bullshit/awesome-puppeteer) with puppeteer as well.)
 
