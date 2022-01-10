@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/davidjgoss/cucumber-puppeteer-typescript-starter#readme",
   "devDependencies": {
-    "@cucumber/cucumber": "^7.3.1",
+    "@cucumber/cucumber": "^7.3.2",
     "@cucumber/pretty-formatter": "^1.0.0-alpha.1",
     "@types/chai": "^4.2.9",
     "@types/lodash": "^4.14.149",
