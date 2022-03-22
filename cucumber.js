@@ -1,3 +1,13 @@
 module.exports = {
-    "default": `--require-module ts-node/register --require "support/**/*.ts" --format @cucumber/pretty-formatter --format rerun:@rerun.txt --format message:dist/cucumber.ndjson --format html:dist/cucumber.html --publish-quiet`
+    default: {
+        requireModule: ['ts-node/register'],
+        require: ['support/**/*.ts'],
+        format: [
+            '@cucumber/pretty-formatter',
+            'rerun:@rerun.txt',
+            'message:dist/cucumber.ndjson',
+            'html:dist/cucumber.html'
+        ],
+        publishQuiet: true
+    }
 };
