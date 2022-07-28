@@ -6,6 +6,7 @@ module.exports = {
             '@cucumber/pretty-formatter',
             'rerun:@rerun.txt',
             'message:dist/cucumber.ndjson',
+            'json:dist/cucumber.json',
             'html:dist/cucumber.html'
         ],
         publishQuiet: true
