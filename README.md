@@ -114,6 +114,7 @@ To start with, we have `Before` and `After` hooks that respectively set up and t
 This starter uses three formatters:
 - The `@cucumber/pretty-formatter`, piped to stdout (separate dependency)
 - The `message` formatter, saved to `dist/cucumber.ndjson` - this is the standard cucumber-messages output that can be used as-is or consumed by other tools
+- The `junit` formatter, saved to `dist/TEST-cucumber.xml` - this produces a JUnit XML report which is supported by many CI tools
 - The `html` formatter, saved to `dist/cucumber.html` - this produces a nice HTML report for the test run
 
 ## Profiles
@@ -121,7 +122,7 @@ This starter uses three formatters:
 Find it here:
 
 ```
-cucumber.js
+cucumber.json
 ```
 
 You can add and flesh out your [profiles](https://github.com/cucumber/cucumber-js/blob/master/docs/cli.md#profiles) here when you're ready.
