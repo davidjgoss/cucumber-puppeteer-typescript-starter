@@ -1,0 +1,27 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - windows-ci
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+        # these versions must be kept in sync with enginesTested.node in package.json
+        node-version: [18.x, 20.x, 21.x]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: with Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm test
